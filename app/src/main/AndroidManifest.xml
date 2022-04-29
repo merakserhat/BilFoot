@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilFoot">
         <activity
+            android:name=".view.AuthenticationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".ui.login.AuthenticationActivity"
+            android:exported="false"
+            android:label="@string/title_activity_authentication" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -18,6 +29,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
