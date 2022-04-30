@@ -11,15 +11,8 @@
         android:theme="@style/Theme.BilFoot">
         <activity
             android:name=".view.AuthenticationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
             android:exported="false"
-            android:label="@string/title_activity_login" />
-        <activity
-            android:name=".ui.login.AuthenticationActivity"
-            android:exported="false"
-            android:label="@string/title_activity_authentication" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

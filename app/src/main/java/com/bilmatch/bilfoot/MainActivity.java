@@ -3,11 +3,13 @@ package com.bilmatch.bilfoot;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.bilmatch.bilfoot.controllers.AuthenticationController;
+import com.bilmatch.bilfoot.view.AuthenticationActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         //}
 
         authenticationController = new AuthenticationController(mAuth);
+        startActivity(new Intent(this, AuthenticationActivity.class));
 
         //authenticationController.signIn(this,"merakserhat@gmail.com","123456");
         //authenticationController.register(this,"merakserhat@gmail.com","123456");
