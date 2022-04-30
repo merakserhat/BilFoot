@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilFoot">
         <activity
+            android:name=".view.registration.RegistrationUserDefiningsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.AuthenticationActivity"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

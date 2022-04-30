@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".view.registration.RegistrationUserDefiningsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="Select Your Dominant Foot"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:id="@+id/dominantFootLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/leftFootContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp">
+
+                    <View
+                        android:id="@+id/view2"
+                        android:layout_width="150dp"
+                        android:layout_height="80dp"
+                        android:tag="cardBackground"
+                        android:background="@color/card"
+                        tools:background="@drawable/rounded_edittext" />
+
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins"
+                        android:tag="text"
+                        android:text="Left"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_alignRight="@id/view2"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/leftfoot" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rightFootContainer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp">
+
+                    <View
+                        android:id="@+id/view3"
+                        android:layout_width="150dp"
+                        android:layout_height="80dp"
+                        android:tag="cardBackground"
+                        android:background="@drawable/rounded_edittext" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/poppins"
+                        android:tag="text"
+                        android:text="Right"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="50dp"
+                        android:layout_height="70dp"
+                        android:layout_alignRight="@id/view3"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="10dp"
+                        app:srcCompat="@drawable/rightfoot" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dominantFootLayout"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="Define Yourself"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TableLayout
+                android:id="@+id/definingTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textView9"
+                android:layout_marginTop="5dp"
+                tools:layout_below="@id/textView9">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/speedyLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/viewSpeedy"
+                            android:layout_width="150dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/rounded_edittext"
+                            android:tag="cardBackground" />
+
+                        <TextView
+                            android:id="@+id/txtSpeedy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Speedy"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imageSpeedy"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewSpeedy"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/speedy" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/deadlyFinisherLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+
+                        <View
+                            android:id="@+id/viewDeadlyFinisher"
+                            android:layout_width="150dp"
+                            android:layout_height="80dp"
+                            android:tag="cardBackground"
+                            android:background="@drawable/rounded_edittext" />
+
+                        <TextView
+                            android:id="@+id/txtDeadlyFinisher"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Deadly\nFinisher"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imageDeadlyFinisher"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewDeadlyFinisher"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/deadlyfinisher" />
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/playmakerLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/viewPlaymaker"
+                            android:layout_width="150dp"
+                            android:layout_height="80dp"
+                            android:tag="cardBackground"
+                            android:background="@drawable/rounded_edittext" />
+
+                        <TextView
+                            android:id="@+id/txtPlaymaker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Playmaker"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imagePlaymaker"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewPlaymaker"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/playmaker" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/tirelessLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+
+                        <View
+                            android:id="@+id/viewTirelerss"
+                            android:layout_width="150dp"
+                            android:tag="cardBackground"
+                            android:layout_height="80dp"
+                            android:background="@drawable/rounded_edittext" />
+
+                        <TextView
+                            android:id="@+id/txtTirelerss"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Tireless"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imageTirelerss"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewTirelerss"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/tireless" />
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/longDistnaceLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/viewLongDistance"
+                            android:layout_width="150dp"
+                            android:tag="cardBackground"
+                            android:layout_height="80dp"
+                            android:background="@drawable/rounded_edittext" />
+
+                        <TextView
+                            android:id="@+id/txtLongDistance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Long\nDistance"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imageLongDistance"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewLongDistance"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/longdistance" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/strongLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+
+                        <View
+                            android:id="@+id/viewStrong"
+                            android:layout_width="150dp"
+                            android:layout_height="80dp"
+                            android:tag="cardBackground"
+                            android:background="@drawable/rounded_edittext" />
+
+                        <TextView
+                            android:id="@+id/txtStrong"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Strong"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imageStrong"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewStrong"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/strong" />
+                    </RelativeLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/headshotLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <View
+                            android:id="@+id/viewHeadshot"
+                            android:layout_width="150dp"
+                            android:layout_height="80dp"
+                            android:tag="cardBackground"
+                            android:background="@drawable/rounded_edittext" />
+
+                        <TextView
+                            android:id="@+id/txtHeadshot"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Speedy"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imageHeadshot"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewHeadshot"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/headshot" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/creativeLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+
+                        <View
+                            android:id="@+id/viewCreative"
+                            android:layout_width="150dp"
+                            android:tag="cardBackground"
+                            android:layout_height="80dp"
+                            android:background="@drawable/rounded_edittext" />
+
+                        <TextView
+                            android:id="@+id/txtCreative"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/poppins"
+                            android:tag="text"
+                            android:text="Creative"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/imageCreative"
+                            android:layout_width="50dp"
+                            android:layout_height="70dp"
+                            android:layout_alignRight="@id/viewCreative"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            app:srcCompat="@drawable/creative" />
+                    </RelativeLayout>
+                </TableRow>
+
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/definingTable"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:text="Next >" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>
