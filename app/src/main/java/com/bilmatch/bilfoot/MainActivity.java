@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.bilmatch.bilfoot.controllers.AuthenticationController;
 import com.bilmatch.bilfoot.view.AuthenticationActivity;
+import com.bilmatch.bilfoot.view.ProfileScreenActivity;
 import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         //}
 
         authenticationController = new AuthenticationController(mAuth);
-        startActivity(new Intent(this, RegistrationUserDefiningsActivity.class));
+        startActivity(new Intent(this, ProfileScreenActivity.class));
 
         //authenticationController.signIn(this,"merakserhat@gmail.com","123456");
         //authenticationController.register(this,"merakserhat@gmail.com","123456");
