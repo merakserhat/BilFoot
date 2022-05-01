@@ -13,6 +13,9 @@
             android:name=".view.ProfileScreenActivity"
             android:exported="false" />
         <activity
+            android:name=".view.registration.PositionSelectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.registration.RegistrationUserDefiningsActivity"
             android:exported="false" />
         <activity
