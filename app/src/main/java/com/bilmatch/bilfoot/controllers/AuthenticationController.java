@@ -84,11 +84,13 @@ public class AuthenticationController {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("AUTHENTICATION", "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                            Log.d("USER",user.toString());
+
+                            //Fill registration defining controller singleton
+                            RegistrationDefiningController.getInstance().email = email;
+                            RegistrationDefiningController.getInstance().username = username;
+                            RegistrationDefiningController.getInstance().id = user != null ? user.getUid() : null;
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("AUTHENTICATION", "createUserWithEmail:failure", task.getException());

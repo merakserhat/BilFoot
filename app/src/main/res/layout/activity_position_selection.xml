@@ -19,10 +19,187 @@
         android:textAlignment="center"
         android:textColor="@color/white" />
 
-    <ImageView
-        android:id="@+id/imageView5"
+    <RelativeLayout
+        android:id="@+id/positionLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="25dp"
-        app:srcCompat="@drawable/football_pitch" />
+        android:layout_above="@id/btnSave"
+        android:layout_below="@id/textView11"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/footballPitch"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            app:srcCompat="@drawable/football_pitch" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_alignBottom="@id/footballPitch"
+            android:layout_marginBottom="20dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="GK"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginTop="155dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="PT"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginTop="325dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="OT"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginTop="215dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="KL"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginTop="100dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="VV"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginTop="45dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="ST"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Save >" />
+
 </RelativeLayout>

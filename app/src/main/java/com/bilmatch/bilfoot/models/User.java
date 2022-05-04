@@ -3,8 +3,8 @@ package com.bilmatch.bilfoot.models;
 public class User {
     private int id;
     private String email;
-    private String name;
-    private String dominantFoot;
+    private String username;
+    private String[] dominantFoot;
     private Position[] preferredPositions;
     private Skill[] specialSkills;
 
@@ -12,7 +12,19 @@ public class User {
         this.specialSkills = specialSkills;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setDominantFoot(String[] dominantFoot) {
+        this.dominantFoot = dominantFoot;
+    }
+
+    public void setPreferredPositions(Position[] preferredPositions) {
+        this.preferredPositions = preferredPositions;
     }
 }

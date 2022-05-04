@@ -9,14 +9,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.controllers.RegistrationDefiningController;
 
 import java.util.ArrayList;
 
 public class RegistrationUserDefiningsActivity extends AppCompatActivity {
 
-    //data holders
-    private ArrayList<String> userDefinings;
-    private ArrayList<String> dominantFoots;
+    //Registration controller singleton
+    RegistrationDefiningController registrationController;
 
     //defining layouts
     RelativeLayout speedyLayout;
@@ -37,8 +37,7 @@ public class RegistrationUserDefiningsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_user_definings);
 
-        userDefinings = new ArrayList<>();
-        dominantFoots = new ArrayList<>();
+        registrationController = RegistrationDefiningController.getInstance();
 
         initializeVariables();
         giveLayoutListeners();
@@ -51,11 +50,11 @@ public class RegistrationUserDefiningsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String definingValue = ((TextView) view.findViewWithTag("text")).getText().toString();
 
-                if(userDefinings.contains(definingValue)) {
-                    userDefinings.remove(definingValue);
+                if(registrationController.userDefinings.contains(definingValue)) {
+                    registrationController.userDefinings.remove(definingValue);
                     deactivateDefiningLayout((RelativeLayout) view);
                 }else {
-                    userDefinings.add(definingValue);
+                    registrationController.userDefinings.add(definingValue);
                     activateDefiningLayout((RelativeLayout) view);
                 }
 
@@ -76,11 +75,11 @@ public class RegistrationUserDefiningsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String dominantFoot = ((TextView) view.findViewWithTag("text")).getText().toString();
 
-                if(dominantFoots.contains(dominantFoot)) {
-                    dominantFoots.remove(dominantFoot);
+                if(registrationController.dominantFeet.contains(dominantFoot)) {
+                    registrationController.dominantFeet.remove(dominantFoot);
                     deactivateDefiningLayout((RelativeLayout) view);
                 }else {
-                    dominantFoots.add(dominantFoot);
+                    registrationController.dominantFeet.add(dominantFoot);
                     activateDefiningLayout((RelativeLayout) view);
                 }
 
