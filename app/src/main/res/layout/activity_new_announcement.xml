@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".view.NewAnnouncementActivity">
+
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:gravity="center_horizontal"
+        android:text="What are you looking for?"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+
+    <Button
+        android:id="@+id/fPlayerBtn"
+        android:layout_width="365dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/text1"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="76dp"
+        android:gravity="fill_vertical"
+        android:text="Find a Player"
+        android:textAllCaps="false"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/fTeamBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/fPlayerBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="fill_vertical"
+        android:text="Find a Team"
+        android:textAllCaps="false"
+        android:textSize="22sp" />
+
+    <Button
+        android:id="@+id/fOpponentBtn"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignTop="@id/fTeamBtn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="fill_vertical"
+        android:text="Find an Opponent"
+        android:textAllCaps="false"
+        android:textSize="22sp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="199dp"
+        android:layout_height="165dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@id/text1"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="0dp"
+        android:baselineAlignBottom="true"
+        app:srcCompat="@mipmap/football_player_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="199dp"
+        android:layout_height="165dp"
+        android:layout_alignTop="@id/text1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="190dp"
+        android:layout_marginEnd="0dp"
+        android:baselineAlignBottom="true"
+        app:srcCompat="@mipmap/football_field_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="199dp"
+        android:layout_height="165dp"
+        android:layout_alignTop="@id/text1"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="320dp"
+        android:layout_marginEnd="0dp"
+        android:baselineAlignBottom="true"
+        app:srcCompat="@mipmap/football_opponent_foreground" />
+
+</RelativeLayout>
