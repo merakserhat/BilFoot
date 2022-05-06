@@ -49,8 +49,8 @@
                         android:id="@+id/view2"
                         android:layout_width="150dp"
                         android:layout_height="80dp"
-                        android:tag="cardBackground"
                         android:background="@color/card"
+                        android:tag="cardBackground"
                         tools:background="@drawable/rounded_edittext" />
 
                     <TextView
@@ -225,8 +225,8 @@
                             android:id="@+id/viewPlaymaker"
                             android:layout_width="150dp"
                             android:layout_height="80dp"
-                            android:tag="cardBackground"
-                            android:background="@drawable/rounded_edittext" />
+                            android:background="@drawable/rounded_edittext"
+                            android:tag="cardBackground" />
 
                         <TextView
                             android:id="@+id/txtPlaymaker"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Player"
+        android:id="@+id/player"/>
+    <item android:title="Team"
+        android:id="@+id/team"/>
+    <item android:title="Opp"
+
+        android:id="@+id/opponent"/>
+</menu>

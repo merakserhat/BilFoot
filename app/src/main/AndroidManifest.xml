@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilFoot">
         <activity
+            android:name=".view.ListAnnouncementsActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.NewAnnouncementActivity"
             android:exported="false" />
         <activity

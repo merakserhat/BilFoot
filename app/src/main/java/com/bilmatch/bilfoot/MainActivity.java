@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.bilmatch.bilfoot.controllers.AuthenticationController;
+import com.bilmatch.bilfoot.view.ListAnnouncementsActivity;
 import com.bilmatch.bilfoot.view.NewAnnouncementActivity;
 import com.bilmatch.bilfoot.view.registration.PositionSelectionActivity;
 import com.bilmatch.bilfoot.view.AuthenticationActivity;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         authenticationController = new AuthenticationController(mAuth);
         //startActivity(new Intent(this, ProfileScreenActivity.class));
         //startActivity(new Intent(this, AuthenticationActivity.class));
-        startActivity(new Intent(this, NewAnnouncementActivity.class));
+        startActivity(new Intent(this, ListAnnouncementsActivity.class));
 
 
     }
