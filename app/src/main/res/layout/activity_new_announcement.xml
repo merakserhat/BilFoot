@@ -99,4 +99,11 @@
         android:baselineAlignBottom="true"
         app:srcCompat="@mipmap/football_opponent_foreground" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/apps_menu"
+        android:layout_marginBottom="0dp" />
+
 </RelativeLayout>
