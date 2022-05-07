@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         authenticationController = new AuthenticationController(mAuth);
         //startActivity(new Intent(this, ProfileScreenActivity.class));
         //startActivity(new Intent(this, AuthenticationActivity.class));
-        startActivity(new Intent(this, ListAnnouncementsActivity.class));
+        startActivity(new Intent(this, AuthenticationActivity.class));
 
 
     }

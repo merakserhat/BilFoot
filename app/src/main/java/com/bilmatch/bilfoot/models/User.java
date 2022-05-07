@@ -1,14 +1,16 @@
 package com.bilmatch.bilfoot.models;
 
+import java.util.List;
+
 public class User {
-    private int id;
+    private String id;
     private String email;
     private String username;
-    private String[] dominantFoot;
-    private Position[] preferredPositions;
-    private Skill[] specialSkills;
+    private List<String> dominantFoot;
+    private List<String> preferredPositions;
+    private List<String> specialSkills;
 
-    public void setSpecialSkills(Skill[] specialSkills) {
+    public void setSpecialSkills(List<String> specialSkills) {
         this.specialSkills = specialSkills;
     }
 
@@ -20,11 +22,39 @@ public class User {
         this.email = email;
     }
 
-    public void setDominantFoot(String[] dominantFoot) {
+    public void setDominantFoot(List<String> dominantFoot) {
         this.dominantFoot = dominantFoot;
     }
 
-    public void setPreferredPositions(Position[] preferredPositions) {
+    public void setPreferredPositions(List<String> preferredPositions) {
         this.preferredPositions = preferredPositions;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public List<String> getDominantFoot() {
+        return dominantFoot;
+    }
+
+    public List<String> getPreferredPositions() {
+        return preferredPositions;
+    }
+
+    public List<String> getSpecialSkills() {
+        return specialSkills;
     }
 }

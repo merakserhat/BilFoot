@@ -2,8 +2,10 @@ package com.bilmatch.bilfoot.view.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,6 +33,9 @@ public class RegistrationUserDefiningsActivity extends AppCompatActivity {
     //dominant foot layouts
     RelativeLayout leftLayout;
     RelativeLayout rightLayout;
+
+    //next button
+    Button btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,6 +94,10 @@ public class RegistrationUserDefiningsActivity extends AppCompatActivity {
         rightLayout.setOnClickListener(dominantFootClickListener);
         leftLayout.setOnClickListener(dominantFootClickListener);
 
+        btnNext.setOnClickListener(view -> {
+            startActivity(new Intent(RegistrationUserDefiningsActivity.this,PositionSelectionActivity.class));
+        });
+
     }
 
     private void initializeVariables() {
@@ -103,6 +112,8 @@ public class RegistrationUserDefiningsActivity extends AppCompatActivity {
 
         leftLayout = findViewById(R.id.leftFootContainer);
         rightLayout = findViewById(R.id.rightFootContainer);
+
+        btnNext = findViewById(R.id.btnNext);
 
     }
 

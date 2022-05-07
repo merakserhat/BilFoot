@@ -1,6 +1,7 @@
 package com.bilmatch.bilfoot.controllers;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -90,6 +92,8 @@ public class AuthenticationController {
                             RegistrationDefiningController.getInstance().email = email;
                             RegistrationDefiningController.getInstance().username = username;
                             RegistrationDefiningController.getInstance().id = user != null ? user.getUid() : null;
+
+                            activity.startActivity(new Intent(activity,RegistrationUserDefiningsActivity.class));
 
                         } else {
                             // If sign in fails, display a message to the user.

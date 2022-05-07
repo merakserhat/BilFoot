@@ -3,14 +3,18 @@ package com.bilmatch.bilfoot.view.registration;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.controllers.RegistrationDefiningController;
 
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class PositionSelectionActivity extends AppCompatActivity {
@@ -26,10 +30,25 @@ public class PositionSelectionActivity extends AppCompatActivity {
         registrationController = RegistrationDefiningController.getInstance();
 
         givePositionListeners();
+        setSaveButtonEvent();
 
 
 
 
+    }
+
+    private void setSaveButtonEvent() {
+        Button btnSave = findViewById(R.id.btnSave);
+
+        btnSave.setOnClickListener(view -> {
+            RegistrationDefiningController.getInstance().saveUser().addOnSuccessListener(suc -> {
+                Log.d("SUCCES","sa");
+                Toast.makeText(PositionSelectionActivity.this,"Successfully saved", Toast.LENGTH_LONG).show();
+            }).addOnFailureListener(err -> {
+                Log.e("ERROR", err.getMessage());
+                Toast.makeText(PositionSelectionActivity.this,err.getMessage(), Toast.LENGTH_LONG).show();
+            });
+        });
     }
 
     private void givePositionListeners() {
