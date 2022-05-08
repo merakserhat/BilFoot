@@ -27,6 +27,7 @@
         <activity
             android:name=".view.AuthenticationActivity"
             android:exported="false"
+            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"

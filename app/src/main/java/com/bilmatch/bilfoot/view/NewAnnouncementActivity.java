@@ -51,7 +51,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
 
             }
         });
-
+/*
         appmenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 //daha çok "case" ekleyerek diğer aktivitelere gitmesi de sağlanabilir,
@@ -63,7 +63,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
             }
             return true;
         });
-
+*/
 
 
     }

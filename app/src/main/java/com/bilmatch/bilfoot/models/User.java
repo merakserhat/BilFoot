@@ -57,4 +57,16 @@ public class User {
     public List<String> getSpecialSkills() {
         return specialSkills;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", dominantFoot=" + dominantFoot +
+                ", preferredPositions=" + preferredPositions +
+                ", specialSkills=" + specialSkills +
+                '}';
+    }
 }

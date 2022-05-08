@@ -7,8 +7,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.databinding.ActivityNewAnnouncementBinding;
+import com.bilmatch.bilfoot.models.User;
+import com.bilmatch.bilfoot.view.NewAnnouncementActivity;
+import com.bilmatch.bilfoot.view.ProfileScreenActivity;
 import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,7 +22,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class AuthenticationController {
@@ -53,6 +63,14 @@ public class AuthenticationController {
                             Log.d("AUTHENTICATION", "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Log.d("USER",user.getUid());
+
+                            //Burada kullanıcı kayıt olmuş ama defining sorularını yapmadıysa defining ekranlarına gönder
+                            //Kullanıcı mevcutsa ana sayfaya yönlendir
+                            RegistrationDefiningController.getInstance().email = email;
+                            RegistrationDefiningController.getInstance().username = email.split("@")[0];
+                            RegistrationDefiningController.getInstance().id = user.getUid();
+
+                            fetchUserInfo(user.getEmail(),activity);
 
                             //updateUI(user);
                         } else {
@@ -116,6 +134,68 @@ public class AuthenticationController {
 
     public boolean checkUsername(String username) {
         return  username != null && username.matches("^[a-zA-Z0-9]*$");
+    }
+
+    private void fetchUserInfo(String email,Activity activity) {
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference reference = db.getReference(User.class.getSimpleName());
+
+        reference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                if(user == null) {
+                    //Kayıt olmuş ama soruları cevaplamamış, register kısmına gönder
+                    activity.startActivity(new Intent(activity,RegistrationUserDefiningsActivity.class));
+                }else {
+                    Log.d("USER",user.toString());
+                    activity.startActivity(new Intent(activity, NewAnnouncementActivity.class));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("USER","cancelled");
+            }
+        });
+
+/*
+        reference.orderByChild("email").equalTo(email).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                User user = snapshot.getValue(User.class);
+                if(user == null) {
+                    //Kayıt olmuş ama soruları cevaplamamış, register kısmına gönder
+                    activity.startActivity(new Intent(activity,RegistrationUserDefiningsActivity.class));
+                }else {
+                    activity.startActivity(new Intent(activity, ProfileScreenActivity.class));
+                }
+                Log.d("USER",user.toString());
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.d("C","changed");
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Log.d("C","removed");
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.d("C","moved");
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("C","cancelled");
+            }
+        });*/
     }
 
 

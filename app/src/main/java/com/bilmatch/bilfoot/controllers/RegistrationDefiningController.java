@@ -1,7 +1,15 @@
 package com.bilmatch.bilfoot.controllers;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.bilmatch.bilfoot.models.User;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -48,6 +56,5 @@ public class RegistrationDefiningController {
 
         return databaseReference.push().setValue(user);
     }
-
 
 }
