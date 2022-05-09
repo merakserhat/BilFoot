@@ -2,7 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="New"
+        android:icon="@mipmap/announcements_icon_foreground"
         android:id="@+id/newAnnouncement"/>
-    <item android:title="List"
+    <item android:title="Listings"
+        android:icon="@mipmap/listings_icon_foreground"
+
         android:id="@+id/listAnnouncements"/>
 </menu>

@@ -2,10 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Player"
+        android:icon="@mipmap/football_player_foreground"
         android:id="@+id/player"/>
     <item android:title="Team"
+        android:icon="@mipmap/football_field_foreground"
         android:id="@+id/team"/>
     <item android:title="Opp"
-
+        android:icon="@mipmap/football_opponent_foreground"
         android:id="@+id/opponent"/>
 </menu>

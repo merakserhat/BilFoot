@@ -11,12 +11,13 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bNvgView"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="45dp"
         android:layout_above="@+id/frame_layout"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="25dp"
         android:background="@color/card_active"
+        app:itemIconSize="40dp"
         app:itemTextColor="@color/white"
         app:menu="@menu/announcements_menu" />
 
@@ -27,7 +28,6 @@
         android:layout_above="@+id/appmenu"
         android:layout_marginBottom="1dp">
 
-
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -36,6 +36,9 @@
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
+        android:background="@color/background"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
         app:menu="@menu/apps_menu" />
 
 
