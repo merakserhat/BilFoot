@@ -87,12 +87,12 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
                 listView.setAdapter(stringArrayAdapter);*/
 
 
-                /*
+
                 PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
 
                 playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
                 ArrayList<String> positions = new ArrayList<>();
-                positions.add("KL");
+                positions.add("Ati242");
                 positions.add("FM");
                 playerAnnouncement.setPositions(positions);
 
@@ -103,7 +103,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
                     Log.e("ERROR", err.getMessage());
                 });;
 
-*/
+
             }
         });
 
@@ -128,7 +128,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             Log.d("ANNOUNCEMENT","BURAA");
             StringBuilder announcementMessage = new StringBuilder();
             announcementMessage.append(announcement.getAnnouncerEmail().split("@")[0]);
-            announcementMessage.append("is looking for ");
+            announcementMessage.append(" is looking for ");
             for (String position : ((PlayerAnnouncement) announcement).getPositions()) {
                 announcementMessage.append(position).append(" ");
             }
