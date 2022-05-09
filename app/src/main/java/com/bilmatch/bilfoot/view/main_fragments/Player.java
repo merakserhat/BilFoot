@@ -16,7 +16,9 @@ import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.controllers.AnnouncementController;
+import com.bilmatch.bilfoot.controllers.NewAnnouncementNotifier;
 import com.bilmatch.bilfoot.models.Program;
+import com.bilmatch.bilfoot.models.announcement.Announcement;
 import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
 import com.bilmatch.bilfoot.view.registration.PositionSelectionActivity;
 
@@ -27,7 +29,7 @@ import java.util.ArrayList;
  * Use the {@link Player#} factory method to
  * create an instance of this fragment.
  */
-public class Player extends Fragment {
+public class Player extends Fragment implements NewAnnouncementNotifier {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,12 +51,8 @@ public class Player extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     * @return A new instance of fragment Player.
-     */
-
+    private ArrayList<String> items;
+    ArrayAdapter<String> stringArrayAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,21 +60,23 @@ public class Player extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_player, container, false);
 
-        ArrayList<String> items = new ArrayList<String>();
+        items = new ArrayList<String>();
         items.add("a");
         items.add("asdsadas");
 
 
+        listView = (ListView) view.findViewById(R.id.playerList);
 
-       ListView listView = (ListView) view.findViewById(R.id.playerList);
-
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
+        stringArrayAdapter = new ArrayAdapter<String>(
                 getActivity(),
                 android.R.layout.simple_list_item_1,
                 items
         );
         listView.setAdapter(stringArrayAdapter);
         //listView.setAdapter(new myListAdapter(this.getContext(), R.layout.item_ann, items));
+
+
+        AnnouncementController.subscribeAnnouncementStream(this,PlayerAnnouncement.class);
 
         btn = (Button)view.findViewById(R.id.btn11);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +85,7 @@ public class Player extends Fragment {
                 //"1" yerine eklenecek mesajı yaz. buton yerine yeni method yaz
                 /*items.add("1");
                 listView.setAdapter(stringArrayAdapter);*/
+
 
                 /*
                 PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
@@ -96,13 +97,13 @@ public class Player extends Fragment {
                 playerAnnouncement.setPositions(positions);
 
 
-                AnnouncementController.addNewPlayerAnnouncement(playerAnnouncement).addOnSuccessListener(suc -> {
+                AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
                     Log.d("SUCCES","sa");
                 }).addOnFailureListener(err -> {
                     Log.e("ERROR", err.getMessage());
                 });;
-                
-                 */
+
+*/
             }
         });
 
@@ -118,6 +119,25 @@ public class Player extends Fragment {
 
 
         return view;
+    }
+
+
+    @Override
+    public void newAnnouncementArrived(Announcement announcement) {
+        if(announcement instanceof PlayerAnnouncement) {
+            Log.d("ANNOUNCEMENT","BURAA");
+            StringBuilder announcementMessage = new StringBuilder();
+            announcementMessage.append(announcement.getAnnouncerEmail().split("@")[0]);
+            announcementMessage.append("is looking for ");
+            for (String position : ((PlayerAnnouncement) announcement).getPositions()) {
+                announcementMessage.append(position).append(" ");
+            }
+            //Remove last space and replace with .
+            announcementMessage.deleteCharAt(announcementMessage.length() - 1);
+            announcementMessage.append(".");
+            items.add(announcementMessage.toString());
+            listView.setAdapter(stringArrayAdapter);
+        }
     }
 
     /*private class myListAdapter extends ArrayAdapter<String>{
