@@ -11,13 +11,13 @@
         android:id="@+id/annMessage"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="16dp"
         android:layout_marginEnd="0dp"
         android:layout_toStartOf="@+id/playerIcon"
         android:layout_toEndOf="@+id/profileBtn"
         android:gravity="center_vertical"
-        android:textColor="@color/white"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="@color/white" />
 
     <ImageView
         android:id="@+id/playerIcon"

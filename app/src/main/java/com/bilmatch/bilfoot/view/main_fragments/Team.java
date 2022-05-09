@@ -1,5 +1,6 @@
 package com.bilmatch.bilfoot.view.main_fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bilmatch.bilfoot.R;
 
@@ -25,6 +31,7 @@ public class Team extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    MyListAdapter myAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -41,27 +48,22 @@ public class Team extends Fragment {
      * @return A new instance of fragment Team.
      */
     // TODO: Rename and change types and number of parameters
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_opponent, container, false);
+        View view = inflater.inflate(R.layout.fragment_team, container, false);
 
         ArrayList<String> items = new ArrayList<String>();
         items.add("wjıoqdıqwoıjd");
         items.add("asdsadas");
 
 
+        ListView listView = (ListView) view.findViewById(R.id.teamList);
 
-        ListView listView = (ListView) view.findViewById(R.id.opponentList);
+        //Log.e("")
 
-        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                items
-        );
-        listView.setAdapter(stringArrayAdapter);
+        myAdapter = new MyListAdapter(items, this.getContext());
+        listView.setAdapter(myAdapter);
 
         /*btn = (Button)view.findViewById(R.id.btn111);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -74,9 +76,60 @@ public class Team extends Fragment {
         });*/
 
 
-
-
-
         return view;
+    }
+
+    private class MyListAdapter extends BaseAdapter implements ListAdapter {
+        private ArrayList<String> list = new ArrayList<String>();
+        private Context context;
+
+
+        public MyListAdapter(ArrayList<String> list, Context context) {
+            this.list = list;
+            this.context = context;
+        }
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public Object getItem(int pos) {
+            return list.get(pos);
+        }
+
+        @Override
+        public long getItemId(int pos) {
+            return -1;
+
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            if (view == null) {
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                view = inflater.inflate(R.layout.item_ann_team, null);
+            }
+
+            //CHANGE FOR EVERY DIFFERENT FRAGMENT
+            TextView listItemText = (TextView) view.findViewById(R.id.annMessage);
+            listItemText.setText(list.get(position));
+            //ICON NAMES WILL BE DIFFERENT
+            ImageView mYicon = (ImageView) view.findViewById(R.id.playerIcon);
+
+            //Handle buttons and add onClickListeners
+            ImageButton profileBtn = (ImageButton) view.findViewById(R.id.profileBtn);
+
+            profileBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //TODO: announcer'ın profiline götür
+                    notifyDataSetChanged();
+                }
+            });
+            return view;
+        }
     }
 }
