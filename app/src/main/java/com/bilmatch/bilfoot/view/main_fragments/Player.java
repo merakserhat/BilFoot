@@ -1,5 +1,7 @@
 package com.bilmatch.bilfoot.view.main_fragments;
 
+import android.content.Context;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
@@ -41,8 +50,6 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
     Button btn;
 
 
-
-
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -52,7 +59,8 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
     }
 
     private ArrayList<String> items;
-    ArrayAdapter<String> stringArrayAdapter;
+    MyListAdapter myAdapter;
+    //ArrayAdapter<String> stringArrayAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,35 +75,31 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
 
         listView = (ListView) view.findViewById(R.id.playerList);
 
-        stringArrayAdapter = new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_list_item_1,
-                items
-        );
-        listView.setAdapter(stringArrayAdapter);
+
+
+        myAdapter = new MyListAdapter(items, this.getContext());
+        listView.setAdapter(myAdapter);
         //listView.setAdapter(new myListAdapter(this.getContext(), R.layout.item_ann, items));
 
 
         AnnouncementController.subscribeAnnouncementStream(this,PlayerAnnouncement.class);
 
         btn = (Button)view.findViewById(R.id.btn11);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO:
+                //TODO
 
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 //make new buttons appear
             }
-        });
-
-
-
+        });*/
 
 
         return view;
@@ -116,7 +120,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             announcementMessage.deleteCharAt(announcementMessage.length() - 1);
             announcementMessage.append(".");
             items.add(announcementMessage.toString());
-            listView.setAdapter(stringArrayAdapter);
+            listView.setAdapter(myAdapter);
         }
     }
 
@@ -160,10 +164,60 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
         Button btn;
 
     }*/
+    private class MyListAdapter extends BaseAdapter implements ListAdapter {
+        private ArrayList<String> list = new ArrayList<String>();
+        private Context context;
 
 
+        public MyListAdapter(ArrayList<String> list, Context context) {
+            this.list = list;
+            this.context = context;
+        }
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public Object getItem(int pos) {
+            return list.get(pos);
+        }
+
+        @Override
+        public long getItemId(int pos) {
+            return -1;
+
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            if (view == null) {
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                view = inflater.inflate(R.layout.item_ann, null);
+            }
+
+            //CHANGE FOR EVERY DIFFERENT FRAGMENT
+            TextView listItemText = (TextView) view.findViewById(R.id.annMessage);
+            listItemText.setText(list.get(position));
+            //ICON NAMES WILL BE DIFFERENT
+            ImageView mYicon = (ImageView) view.findViewById(R.id.playerIcon);
+
+            //Handle buttons and add onClickListeners
+            ImageButton profileBtn = (ImageButton) view.findViewById(R.id.profileBtn);
+
+            profileBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //do something
+
+                    notifyDataSetChanged();
+                }
+            });
+            return view;
 
 
-
-
+        }
+    }
 }
