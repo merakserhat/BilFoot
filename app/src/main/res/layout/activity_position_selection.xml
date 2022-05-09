@@ -65,7 +65,9 @@
             android:layout_alignLeft="@id/footballPitch"
             android:layout_alignTop="@id/footballPitch"
             android:layout_alignRight="@id/footballPitch"
-            android:layout_marginTop="155dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="225dp"
+            android:layout_marginRight="0dp"
             android:alpha="0.7"
             android:tag="position_layout">
 
@@ -81,7 +83,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/poppins_bold"
                 android:tag="position_text"
-                android:text="PT"
+                android:text="CM"
                 android:textAlignment="center" />
         </FrameLayout>
 
@@ -91,7 +93,9 @@
             android:layout_alignLeft="@id/footballPitch"
             android:layout_alignTop="@id/footballPitch"
             android:layout_alignRight="@id/footballPitch"
-            android:layout_marginTop="325dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="351dp"
+            android:layout_marginRight="-1dp"
             android:alpha="0.7"
             android:tag="position_layout">
 
@@ -107,61 +111,64 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/poppins_bold"
                 android:tag="position_text"
-                android:text="OT"
+                android:text="CB"
                 android:textAlignment="center" />
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/footballPitch"
-            android:layout_alignTop="@id/footballPitch"
-            android:layout_alignRight="@id/footballPitch"
-            android:layout_marginTop="215dp"
-            android:alpha="0.7"
-            android:tag="position_layout">
+            android:layout_alignBottom="@id/footballPitch"
+            android:layout_marginBottom="325dp"
+            android:gravity="center">
 
-            <View
+            <FrameLayout
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/position_background" />
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/poppins_bold"
-                android:tag="position_text"
-                android:text="KL"
-                android:textAlignment="center" />
-        </FrameLayout>
+                android:alpha="0.7"
+                android:tag="position_layout">
 
-        <FrameLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/footballPitch"
-            android:layout_alignTop="@id/footballPitch"
-            android:layout_alignRight="@id/footballPitch"
-            android:layout_marginTop="100dp"
-            android:alpha="0.7"
-            android:tag="position_layout">
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/position_background" />
 
-            <View
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:tag="position_text"
+                    android:text="LW"
+                    android:textAlignment="center" />
+            </FrameLayout>
+
+            <FrameLayout
                 android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@drawable/position_background" />
-
-            <TextView
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/poppins_bold"
-                android:tag="position_text"
-                android:text="VV"
-                android:textAlignment="center" />
-        </FrameLayout>
+                android:layout_marginStart="225dp"
+                android:alpha="0.7"
+                android:tag="position_layout">
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/position_background" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:tag="position_text"
+                    android:text="RW"
+                    android:textAlignment="center" />
+            </FrameLayout>
+
+        </LinearLayout>
 
         <FrameLayout
             android:layout_width="wrap_content"
