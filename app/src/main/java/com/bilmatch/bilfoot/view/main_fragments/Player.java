@@ -1,7 +1,6 @@
 package com.bilmatch.bilfoot.view.main_fragments;
 
 import android.content.Context;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
@@ -21,15 +18,12 @@ import android.widget.ListAdapter;
 
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.controllers.AnnouncementController;
 import com.bilmatch.bilfoot.controllers.NewAnnouncementNotifier;
-import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.announcement.Announcement;
 import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
-import com.bilmatch.bilfoot.view.registration.PositionSelectionActivity;
 
 import java.util.ArrayList;
 
@@ -79,7 +73,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
 
         myAdapter = new MyListAdapter(items, this.getContext());
         listView.setAdapter(myAdapter);
-        //listView.setAdapter(new myListAdapter(this.getContext(), R.layout.item_ann, items));
+        //listView.setAdapter(new myListAdapter(this.getContext(), R.layout.item_ann_player, items));
 
 
         AnnouncementController.subscribeAnnouncementStream(this,PlayerAnnouncement.class);
@@ -195,7 +189,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             View view = convertView;
             if (view == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                view = inflater.inflate(R.layout.item_ann, null);
+                view = inflater.inflate(R.layout.item_ann_player, null);
             }
 
             //CHANGE FOR EVERY DIFFERENT FRAGMENT
@@ -210,8 +204,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             profileBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //do something
-
+                    //TODO: announcer'ın profiline götür
                     notifyDataSetChanged();
                 }
             });

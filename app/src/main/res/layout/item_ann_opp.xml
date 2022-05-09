@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="15dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/annMessage"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="0dp"
+        android:layout_toStartOf="@+id/playerIcon"
+        android:layout_toEndOf="@+id/profileBtn"
+        android:gravity="center_vertical"
+        android:text="TextView"
+        android:textColor="@color/white" />
+
+    <ImageView
+        android:id="@+id/playerIcon"
+        android:layout_width="100dp"
+        android:layout_height="75dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="2dp"
+        android:visibility="visible"
+        app:srcCompat="@mipmap/opponent_big_icon1_foreground" />
+
+    <ImageButton
+        android:id="@+id/profileBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/position_background"
+        android:backgroundTint="@color/black"
+        android:clickable="true"
+        app:srcCompat="@mipmap/profile_icon_foreground"
+        app:tint="@color/white" />
+</RelativeLayout>
