@@ -2,6 +2,7 @@ package com.bilmatch.bilfoot.view.registration;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.controllers.RegistrationDefiningController;
+import com.bilmatch.bilfoot.view.NewAnnouncementActivity;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ public class PositionSelectionActivity extends AppCompatActivity {
         btnSave.setOnClickListener(view -> {
             RegistrationDefiningController.getInstance().saveUser().addOnSuccessListener(suc -> {
                 Log.d("SUCCES","sa");
+                startActivity(new Intent(PositionSelectionActivity.this, NewAnnouncementActivity.class));
                 Toast.makeText(PositionSelectionActivity.this,"Successfully saved", Toast.LENGTH_LONG).show();
             }).addOnFailureListener(err -> {
                 Log.e("ERROR", err.getMessage());

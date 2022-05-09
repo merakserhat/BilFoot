@@ -62,6 +62,8 @@ public class NewAnnouncementActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 TeamAnnouncement teamAnnouncement = new TeamAnnouncement();
+                teamAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
+
                 AnnouncementController.addAnnouncement(teamAnnouncement,TeamAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
                     Log.d("SUCCES","sa");
                     Toast.makeText(NewAnnouncementActivity.this,"You have announced to find a team!",Toast.LENGTH_LONG).show();
@@ -78,7 +80,9 @@ public class NewAnnouncementActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 OpponentAnnouncement opponentAnnouncement = new OpponentAnnouncement();
-                AnnouncementController.addAnnouncement(opponentAnnouncement,TeamAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
+                opponentAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
+
+                AnnouncementController.addAnnouncement(opponentAnnouncement,OpponentAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
                     Log.d("SUCCES","sa");
                     Toast.makeText(NewAnnouncementActivity.this,"You have announced to find an opponent!",Toast.LENGTH_LONG).show();
                 }).addOnFailureListener(err -> {

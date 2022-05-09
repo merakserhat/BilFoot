@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,25 +18,29 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.controllers.AnnouncementController;
+import com.bilmatch.bilfoot.controllers.NewAnnouncementNotifier;
+import com.bilmatch.bilfoot.models.announcement.Announcement;
+import com.bilmatch.bilfoot.models.announcement.OpponentAnnouncement;
+import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Opponent#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Opponent extends Fragment {
+public class Opponent extends Fragment implements NewAnnouncementNotifier {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    MyListAdapter myAdapter;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ListView listView;
 
     public Opponent() {
         // Required empty public constructor
@@ -49,6 +54,9 @@ public class Opponent extends Fragment {
      * @return A new instance of fragment Opponent.
      */
 
+    private ArrayList<String> items;
+    MyListAdapter myAdapter;
+
 
 
     @Override
@@ -56,32 +64,28 @@ public class Opponent extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_opponent, container, false);
 
-        ArrayList<String> items = new ArrayList<String>();
-        items.add("opponent");
-        items.add("asdsadas");
+        items = new ArrayList<>();
 
-
-
-        ListView listView = (ListView) view.findViewById(R.id.opponentList);
+        listView = (ListView) view.findViewById(R.id.opponentList);
 
         myAdapter = new MyListAdapter(items, this.getContext());
         listView.setAdapter(myAdapter);
 
-        /*btn = (Button)view.findViewById(R.id.btn111);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //"1" yerine eklenecek mesajı yaz. buton yerine yeni method yaz
-                items.add("1");
-                listView.setAdapter(stringArrayAdapter);
-            }
-        });*/
-
-
-
-
+        AnnouncementController.subscribeAnnouncementStream(this, OpponentAnnouncement.class);
 
         return view;
+    }
+
+    @Override
+    public void newAnnouncementArrived(Announcement announcement) {
+        if(announcement instanceof OpponentAnnouncement) {
+            StringBuilder announcementMessage = new StringBuilder();
+            announcementMessage.append(announcement.getAnnouncerEmail().split("@")[0]);
+            announcementMessage.append(" is looking for an opponent.");
+
+            items.add(0,announcementMessage.toString());
+            listView.setAdapter(myAdapter);
+        }
     }
 
     private class MyListAdapter extends BaseAdapter implements ListAdapter {
@@ -131,6 +135,7 @@ public class Opponent extends Fragment {
                 @Override
                 public void onClick(View v) {
                     //TODO: announcer'ın profiline götür
+                    AnnouncementController.announcementShowProfileButtonClicked(Opponent.this.getActivity(),v);
                     notifyDataSetChanged();
                 }
             });

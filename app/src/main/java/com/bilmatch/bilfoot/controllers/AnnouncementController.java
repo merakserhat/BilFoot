@@ -1,5 +1,12 @@
 package com.bilmatch.bilfoot.controllers;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -7,6 +14,8 @@ import com.bilmatch.bilfoot.models.announcement.Announcement;
 import com.bilmatch.bilfoot.models.announcement.OpponentAnnouncement;
 import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
 import com.bilmatch.bilfoot.models.announcement.TeamAnnouncement;
+import com.bilmatch.bilfoot.view.ProfileScreenActivity;
+import com.bilmatch.bilfoot.view.main_fragments.Player;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -60,6 +69,20 @@ public class AnnouncementController {
 
             }
         });
+    }
+
+    public static void announcementShowProfileButtonClicked(Activity activity, View v) {
+
+        RelativeLayout parentLayout = (RelativeLayout) v.getParent();
+        TextView textView = (TextView) parentLayout.getChildAt(0);
+
+        String email = textView.getText().toString().split(" ")[0] + "@ug.bilkent.edu.tr";
+
+
+        Intent i = new Intent(activity, ProfileScreenActivity.class);
+        i.putExtra(ProfileScreenActivity.EMAIL_KEY,email);
+        i.putExtra(ProfileScreenActivity.OWN_PROFILE_KEY,false);
+        activity.startActivity(i);
     }
 }
 

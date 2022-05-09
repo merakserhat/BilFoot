@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bilmatch.bilfoot.R;
@@ -56,7 +57,6 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
 
     private ArrayList<String> items;
     MyListAdapter myAdapter;
-    //ArrayAdapter<String> stringArrayAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -105,7 +105,6 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
     @Override
     public void newAnnouncementArrived(Announcement announcement) {
         if(announcement instanceof PlayerAnnouncement) {
-            Log.d("ANNOUNCEMENT","BURAA");
             StringBuilder announcementMessage = new StringBuilder();
             announcementMessage.append(announcement.getAnnouncerEmail().split("@")[0]);
             announcementMessage.append(" is looking for ");
@@ -115,7 +114,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             //Remove last space and replace with .
             announcementMessage.deleteCharAt(announcementMessage.length() - 1);
             announcementMessage.append(".");
-            items.add(announcementMessage.toString());
+            items.add(0,announcementMessage.toString());
             listView.setAdapter(myAdapter);
         }
     }
@@ -206,14 +205,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             profileBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //TODO: announcer'ın profiline götür
-
-                    String value="Hello world";
-                    Intent i = new Intent(Player.this.getActivity(), ProfileScreenActivity.class);
-                    i.putExtra(ProfileScreenActivity.EMAIL_KEY,"deneme12@ug.bilkent.edu.tr");
-                    i.putExtra(ProfileScreenActivity.OWN_PROFILE_KEY,false);
-                    startActivity(i);
-
+                    AnnouncementController.announcementShowProfileButtonClicked(Player.this.getActivity(),v);
                     notifyDataSetChanged();
                 }
             });
