@@ -101,9 +101,10 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
+        android:id="@+id/appmenu"
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/apps_menu"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginBottom="0dp"
+        app:menu="@menu/apps_menu" />
 
 </RelativeLayout>

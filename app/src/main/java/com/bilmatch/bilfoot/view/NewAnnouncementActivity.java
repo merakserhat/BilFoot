@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,6 +25,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
         findPlayerBtn=findViewById(R.id.fPlayerBtn);
         findTeamBtn=findViewById(R.id.fTeamBtn);
         findOpponentBtn=findViewById(R.id.fOpponentBtn);
+        appmenu = findViewById(R.id.appmenu);
 
 
         //bir pozisyonda oyuncu ilanı
@@ -51,7 +53,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
 
             }
         });
-/*
+
         appmenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
                 //daha çok "case" ekleyerek diğer aktivitelere gitmesi de sağlanabilir,
@@ -63,7 +65,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
             }
             return true;
         });
-*/
+
 
 
     }
