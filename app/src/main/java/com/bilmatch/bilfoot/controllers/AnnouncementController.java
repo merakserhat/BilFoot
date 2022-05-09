@@ -62,3 +62,24 @@ public class AnnouncementController {
         });
     }
 }
+
+/*
+               
+
+
+    PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
+
+                playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
+                        ArrayList<String> positions = new ArrayList<>();
+        positions.add("Ati242");
+        positions.add("FM");
+        playerAnnouncement.setPositions(positions);
+
+
+        AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
+        Log.d("SUCCES","sa");
+        }).addOnFailureListener(err -> {
+        Log.e("ERROR", err.getMessage());
+        });;
+
+ */

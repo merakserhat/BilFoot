@@ -82,27 +82,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //"1" yerine eklenecek mesajı yaz. buton yerine yeni method yaz
-                /*items.add("1");
-                listView.setAdapter(stringArrayAdapter);*/
-
-
-
-                PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
-
-                playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
-                ArrayList<String> positions = new ArrayList<>();
-                positions.add("Ati242");
-                positions.add("FM");
-                playerAnnouncement.setPositions(positions);
-
-
-                AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
-                    Log.d("SUCCES","sa");
-                }).addOnFailureListener(err -> {
-                    Log.e("ERROR", err.getMessage());
-                });;
-
+                //TODO:
 
             }
         });
