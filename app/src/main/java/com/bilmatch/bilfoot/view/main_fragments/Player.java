@@ -1,6 +1,7 @@
 package com.bilmatch.bilfoot.view.main_fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -24,6 +25,7 @@ import com.bilmatch.bilfoot.controllers.AnnouncementController;
 import com.bilmatch.bilfoot.controllers.NewAnnouncementNotifier;
 import com.bilmatch.bilfoot.models.announcement.Announcement;
 import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
+import com.bilmatch.bilfoot.view.ProfileScreenActivity;
 
 import java.util.ArrayList;
 
@@ -205,6 +207,13 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
                 @Override
                 public void onClick(View v) {
                     //TODO: announcer'ın profiline götür
+
+                    String value="Hello world";
+                    Intent i = new Intent(Player.this.getActivity(), ProfileScreenActivity.class);
+                    i.putExtra(ProfileScreenActivity.EMAIL_KEY,"deneme12@ug.bilkent.edu.tr");
+                    i.putExtra(ProfileScreenActivity.OWN_PROFILE_KEY,false);
+                    startActivity(i);
+
                     notifyDataSetChanged();
                 }
             });

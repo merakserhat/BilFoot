@@ -7,9 +7,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.controllers.AnnouncementController;
+import com.bilmatch.bilfoot.models.Program;
+import com.bilmatch.bilfoot.models.announcement.OpponentAnnouncement;
+import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
+import com.bilmatch.bilfoot.models.announcement.TeamAnnouncement;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class NewAnnouncementActivity extends AppCompatActivity {
     Button findPlayerBtn;
@@ -33,6 +41,18 @@ public class NewAnnouncementActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
+
+                playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
+                ArrayList<String> positions = new ArrayList<>();
+                positions.add("TP");
+                playerAnnouncement.setPositions(positions);
+
+                AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
+                    Log.d("SUCCES","sa");
+                }).addOnFailureListener(err -> {
+                    Log.e("ERROR", err.getMessage());
+                });;
             }
         });
 
@@ -41,7 +61,14 @@ public class NewAnnouncementActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View view) {
-
+                TeamAnnouncement teamAnnouncement = new TeamAnnouncement();
+                AnnouncementController.addAnnouncement(teamAnnouncement,TeamAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
+                    Log.d("SUCCES","sa");
+                    Toast.makeText(NewAnnouncementActivity.this,"You have announced to find a team!",Toast.LENGTH_LONG).show();
+                }).addOnFailureListener(err -> {
+                    Log.e("ERROR", err.getMessage());
+                    Toast.makeText(NewAnnouncementActivity.this,"Something went wrong while creating an announcement",Toast.LENGTH_LONG).show();
+                });;
             }
         });
 
@@ -50,7 +77,15 @@ public class NewAnnouncementActivity extends AppCompatActivity {
             @Override
 
             public void onClick(View view) {
+                OpponentAnnouncement opponentAnnouncement = new OpponentAnnouncement();
+                AnnouncementController.addAnnouncement(opponentAnnouncement,TeamAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
+                    Log.d("SUCCES","sa");
+                    Toast.makeText(NewAnnouncementActivity.this,"You have announced to find an opponent!",Toast.LENGTH_LONG).show();
+                }).addOnFailureListener(err -> {
+                    Log.e("ERROR", err.getMessage());
+                    Toast.makeText(NewAnnouncementActivity.this,"Something went wrong while creating an announcement",Toast.LENGTH_LONG).show();
 
+                });
             }
         });
 

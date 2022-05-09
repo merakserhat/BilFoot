@@ -165,43 +165,6 @@ public class AuthenticationController {
             }
         });
 
-/*
-        reference.orderByChild("email").equalTo(email).addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                User user = snapshot.getValue(User.class);
-                if(user == null) {
-                    //Kayıt olmuş ama soruları cevaplamamış, register kısmına gönder
-                    activity.startActivity(new Intent(activity,RegistrationUserDefiningsActivity.class));
-                }else {
-                    activity.startActivity(new Intent(activity, ProfileScreenActivity.class));
-                }
-                Log.d("USER",user.toString());
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d("C","changed");
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                Log.d("C","removed");
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d("C","moved");
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.d("C","cancelled");
-            }
-        });*/
     }
 
 

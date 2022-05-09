@@ -33,8 +33,6 @@ public class PositionSelectionActivity extends AppCompatActivity {
         setSaveButtonEvent();
 
 
-
-
     }
 
     private void setSaveButtonEvent() {
