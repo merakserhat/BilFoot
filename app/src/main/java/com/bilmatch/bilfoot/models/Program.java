@@ -18,4 +18,6 @@ public class Program {
         return instance;
     }
     //#endregion
+
+    public User user;
 }

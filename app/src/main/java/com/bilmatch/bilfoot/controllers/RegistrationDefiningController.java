@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.User;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
@@ -53,6 +54,8 @@ public class RegistrationDefiningController {
         user.setEmail(email);
         user.setUsername(username);
         user.setId(id);
+
+        Program.getInstance().user = user;
 
         return databaseReference.push().setValue(user);
     }

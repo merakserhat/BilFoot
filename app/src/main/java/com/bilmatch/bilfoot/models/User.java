@@ -10,6 +10,8 @@ public class User {
     private List<String> preferredPositions;
     private List<String> specialSkills;
 
+    public User() {};
+
     public void setSpecialSkills(List<String> specialSkills) {
         this.specialSkills = specialSkills;
     }

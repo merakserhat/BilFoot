@@ -1,25 +1,26 @@
-package com.bilmatch.bilfoot;
+package com.bilmatch.bilfoot.view.main_fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.controllers.AnnouncementController;
+import com.bilmatch.bilfoot.models.Program;
+import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
+import com.bilmatch.bilfoot.view.registration.PositionSelectionActivity;
+
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -82,8 +83,26 @@ public class Player extends Fragment {
             @Override
             public void onClick(View view) {
                 //"1" yerine eklenecek mesajı yaz. buton yerine yeni method yaz
-                items.add("1");
-                listView.setAdapter(stringArrayAdapter);
+                /*items.add("1");
+                listView.setAdapter(stringArrayAdapter);*/
+
+                /*
+                PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
+
+                playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
+                ArrayList<String> positions = new ArrayList<>();
+                positions.add("KL");
+                positions.add("FM");
+                playerAnnouncement.setPositions(positions);
+
+
+                AnnouncementController.addNewPlayerAnnouncement(playerAnnouncement).addOnSuccessListener(suc -> {
+                    Log.d("SUCCES","sa");
+                }).addOnFailureListener(err -> {
+                    Log.e("ERROR", err.getMessage());
+                });;
+                
+                 */
             }
         });
 

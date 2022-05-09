@@ -7,16 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.AdapterView;
 
-import com.bilmatch.bilfoot.Opponent;
-import com.bilmatch.bilfoot.Player;
-import com.bilmatch.bilfoot.R;
-import com.bilmatch.bilfoot.Team;
 import com.bilmatch.bilfoot.databinding.ActivityListAnnouncementsBinding;
+import com.bilmatch.bilfoot.view.main_fragments.Opponent;
+import com.bilmatch.bilfoot.view.main_fragments.Player;
+import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.view.main_fragments.Team;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import java.util.List;
 
 public class ListAnnouncementsActivity extends AppCompatActivity {
     ActivityListAnnouncementsBinding binding;

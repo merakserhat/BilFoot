@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.databinding.ActivityNewAnnouncementBinding;
+import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.User;
 import com.bilmatch.bilfoot.view.NewAnnouncementActivity;
 import com.bilmatch.bilfoot.view.ProfileScreenActivity;
@@ -143,12 +144,17 @@ public class AuthenticationController {
         reference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User user = snapshot.getValue(User.class);
+                User user = null;
+                for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+                    user = childSnapshot.getValue(User.class);
+                }
                 if(user == null) {
                     //Kayıt olmuş ama soruları cevaplamamış, register kısmına gönder
                     activity.startActivity(new Intent(activity,RegistrationUserDefiningsActivity.class));
                 }else {
                     Log.d("USER",user.toString());
+                    //Set user for program
+                    Program.getInstance().user = user;
                     activity.startActivity(new Intent(activity, NewAnnouncementActivity.class));
                 }
             }
