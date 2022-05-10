@@ -26,12 +26,16 @@ public class PlayerAnnnouncementPositionSelectionActivity extends AppCompatActiv
     //Registration controller singleton
     RegistrationDefiningController registrationController;
 
+    ArrayList<String> preferredPositions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_position_selection);
 
         registrationController = RegistrationDefiningController.getInstance();
+
+        preferredPositions = new ArrayList<>();
 
         givePositionListeners();
         setSaveButtonEvent();
@@ -43,6 +47,25 @@ public class PlayerAnnnouncementPositionSelectionActivity extends AppCompatActiv
         Button btnSave = findViewById(R.id.btnSave);
         //TODO
         //btnSave.setOnClickListener;
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
+                playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
+                playerAnnouncement.setPositions(preferredPositions);
+
+                AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
+                    Toast.makeText(PlayerAnnnouncementPositionSelectionActivity.this,"You have announced to find a team!",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(PlayerAnnnouncementPositionSelectionActivity.this,ListAnnouncementsActivity.class));
+                }).addOnFailureListener(err -> {
+                    Toast.makeText(PlayerAnnnouncementPositionSelectionActivity.this,"Something went wrong while creating an announcement",Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(PlayerAnnnouncementPositionSelectionActivity.this,NewAnnouncementActivity.class));
+                });;
+            }
+        });
+
+
     }
 
     private void givePositionListeners() {
@@ -59,10 +82,10 @@ public class PlayerAnnnouncementPositionSelectionActivity extends AppCompatActiv
 
                 if(registrationController.preferredPositions.contains(positionText)) {
                     view.setAlpha(0.7f);
-                    registrationController.preferredPositions.remove(positionText);
+                    preferredPositions.remove(positionText);
                 }else {
                     view.setAlpha(1);
-                    registrationController.preferredPositions.add(positionText);
+                    preferredPositions.add(positionText);
                 }
 
             }

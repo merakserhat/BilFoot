@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.bilmatch.bilfoot.controllers.AuthenticationController;
 import com.bilmatch.bilfoot.controllers.PreferencesController;
+import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.User;
 import com.bilmatch.bilfoot.view.AuthenticationActivity;
 
@@ -32,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         //startActivity(new Intent(this, AuthenticationActivity.class));
         User user = PreferencesController.fetchUserFromPreferences(this);
         if(user != null) {
+            Log.e("USER",user.toString());
+
+            Program.getInstance().user = user;
             startActivity(new Intent(this, NewAnnouncementActivity.class));
         }else {
             startActivity(new Intent(this, AuthenticationActivity.class));

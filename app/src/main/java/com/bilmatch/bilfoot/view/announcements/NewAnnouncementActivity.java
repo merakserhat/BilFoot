@@ -43,20 +43,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
                 //new intent to position selection
                 startActivity(new Intent(NewAnnouncementActivity.this, PlayerAnnnouncementPositionSelectionActivity.class));
                 //move to new activity
-                /*
-                PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
-                playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
-                ArrayList<String> positions = new ArrayList<>();
-                positions.add("TP");
-                playerAnnouncement.setPositions(positions);
 
-                AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
-                    Log.d("SUCCESS","sa");
-                    Toast.makeText(NewAnnouncementActivity.this,"You have announced to find a team!",Toast.LENGTH_LONG).show();
-                }).addOnFailureListener(err -> {
-                    Log.e("ERROR", err.getMessage());
-                    Toast.makeText(NewAnnouncementActivity.this,"Something went wrong while creating an announcement",Toast.LENGTH_LONG).show();
-                });;*/
             }
         });
 
