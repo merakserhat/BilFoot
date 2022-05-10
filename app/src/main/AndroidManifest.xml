@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BilFoot">
         <activity
-            android:name=".view.announcements.NewAnnouncementActivity"
-            android:noHistory="true"
+            android:name=".view.announcements.PlayerAnnnouncementPositionSelectionActivity"
             android:exported="false" />
         <activity
+            android:name=".view.announcements.NewAnnouncementActivity"
+            android:exported="false"
+            android:noHistory="true" />
+        <activity
             android:name=".view.announcements.ListAnnouncementsActivity"
-            android:noHistory="true"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true" />
         <activity
             android:name=".view.ProfileScreenActivity"
             android:exported="false" />
@@ -33,8 +36,8 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".MainActivity"
-            android:noHistory="true"
-            android:exported="true">
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

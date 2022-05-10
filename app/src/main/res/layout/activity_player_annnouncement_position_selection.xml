@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".view.registration.PositionSelectionActivity">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Which position(s) do\nyou prefer?"
+        android:textAlignment="center"
+        android:textColor="@color/white" />
+
+    <RelativeLayout
+        android:id="@+id/positionLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnSave"
+        android:layout_below="@id/textView11"
+        android:layout_marginTop="30dp">
+
+        <ImageView
+            android:id="@+id/footballPitch"
+            android:layout_width="wrap_content"
+            android:layout_height="500dp"
+            app:srcCompat="@drawable/football_pitch" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_alignBottom="@id/footballPitch"
+            android:layout_marginBottom="20dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="GK"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="225dp"
+            android:layout_marginRight="0dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="CM"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="351dp"
+            android:layout_marginRight="-1dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="CB"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/footballPitch"
+            android:layout_marginBottom="325dp"
+            android:gravity="center">
+
+            <FrameLayout
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:alpha="0.7"
+                android:tag="position_layout">
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/position_background" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:tag="position_text"
+                    android:text="LW"
+                    android:textAlignment="center" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="225dp"
+                android:alpha="0.7"
+                android:tag="position_layout">
+
+                <View
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/position_background" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:tag="position_text"
+                    android:text="RW"
+                    android:textAlignment="center" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/footballPitch"
+            android:layout_alignTop="@id/footballPitch"
+            android:layout_alignRight="@id/footballPitch"
+            android:layout_marginTop="45dp"
+            android:alpha="0.7"
+            android:tag="position_layout">
+
+            <View
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/position_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/poppins_bold"
+                android:tag="position_text"
+                android:text="ST"
+                android:textAlignment="center" />
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="Save >" />
+
+</RelativeLayout>
