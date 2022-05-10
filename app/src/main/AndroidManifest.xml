@@ -29,7 +29,8 @@
             android:exported="false" />
         <activity
             android:name=".view.registration.RegistrationUserDefiningsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity
             android:name=".view.AuthenticationActivity"
             android:exported="false"

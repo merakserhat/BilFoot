@@ -15,8 +15,8 @@ public class PreferencesController {
     private static final String USER_EMAIL_KEY = "user_email";
     private static final String USER_USERNAME_KEY = "user_username";
     private static final String USER_DOMINANT_FOOT_KEY = "user_dominant_foot";
-    private static final String USER_PREFERRED_POSITIONS_KEY = "user_dominant_foot";
-    private static final String USER_SPECIAL_SKILLS_KEY = "user_dominant_foot";
+    private static final String USER_PREFERRED_POSITIONS_KEY = "user_preferred_positions";
+    private static final String USER_SPECIAL_SKILLS_KEY = "user_special_skills";
 
 
     public static User fetchUserFromPreferences(Context context) {

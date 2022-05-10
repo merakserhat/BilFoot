@@ -388,7 +388,7 @@
                             android:layout_marginTop="10dp"
                             android:fontFamily="@font/poppins"
                             android:tag="text"
-                            android:text="Speedy"
+                            android:text="Headshot"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
 
