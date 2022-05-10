@@ -12,6 +12,7 @@ import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.User;
 import com.bilmatch.bilfoot.view.announcements.NewAnnouncementActivity;
+import com.bilmatch.bilfoot.view.registration.PositionSelectionActivity;
 import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -149,6 +150,9 @@ public class AuthenticationController {
                     Log.d("USER",user.toString());
                     //Set user for program
                     Program.getInstance().user = user;
+                    if(Program.getInstance().isRememberMe)
+                        PreferencesController.saveUserToPreferences(activity);
+
                     activity.startActivity(new Intent(activity, NewAnnouncementActivity.class));
                 }
             }

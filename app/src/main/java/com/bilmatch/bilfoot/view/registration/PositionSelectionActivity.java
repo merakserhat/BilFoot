@@ -13,7 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.controllers.PreferencesController;
 import com.bilmatch.bilfoot.controllers.RegistrationDefiningController;
+import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.view.announcements.NewAnnouncementActivity;
 
 import java.util.ArrayList;
@@ -42,6 +44,9 @@ public class PositionSelectionActivity extends AppCompatActivity {
         btnSave.setOnClickListener(view -> {
             RegistrationDefiningController.getInstance().saveUser().addOnSuccessListener(suc -> {
                 Log.d("SUCCES","sa");
+                if(Program.getInstance().isRememberMe)
+                    PreferencesController.saveUserToPreferences(PositionSelectionActivity.this);
+
                 startActivity(new Intent(PositionSelectionActivity.this, NewAnnouncementActivity.class));
                 Toast.makeText(PositionSelectionActivity.this,"Successfully saved", Toast.LENGTH_LONG).show();
             }).addOnFailureListener(err -> {

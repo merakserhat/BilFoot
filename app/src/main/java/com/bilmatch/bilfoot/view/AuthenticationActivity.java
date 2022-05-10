@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.controllers.AuthenticationController;
+import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.Skill;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -63,6 +64,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                 String email = loginEmail.getText().toString();
                 String password = loginPassword.getText().toString();
                 boolean rememberMe = rememberMeCheckbox.isChecked();
+                Program.getInstance().isRememberMe = rememberMe;
 
                 if(email.isEmpty()) {
                     loginEmail.setError("E-mail address can not be empty");

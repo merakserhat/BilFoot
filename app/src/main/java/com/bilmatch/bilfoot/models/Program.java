@@ -20,4 +20,8 @@ public class Program {
     //#endregion
 
     public User user;
+
+    public boolean isRememberMe = false;
+
+
 }
