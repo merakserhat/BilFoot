@@ -80,7 +80,7 @@ public class PlayerAnnnouncementPositionSelectionActivity extends AppCompatActiv
                 String positionText = txtPosition == null ? null : txtPosition.getText().toString();
 
 
-                if(registrationController.preferredPositions.contains(positionText)) {
+                if(preferredPositions.contains(positionText)) {
                     view.setAlpha(0.7f);
                     preferredPositions.remove(positionText);
                 }else {
