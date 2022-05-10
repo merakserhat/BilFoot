@@ -14,7 +14,7 @@
             android:noHistory="true"
             android:exported="false" />
         <activity
-            android:name=".view.NewAnnouncementActivity"
+            android:name=".view.announcements.NewAnnouncementActivity"
             android:noHistory="true"
             android:exported="false" />
         <activity

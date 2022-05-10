@@ -7,7 +7,7 @@
     <item android:title="Team"
         android:icon="@mipmap/football_field_foreground"
         android:id="@+id/team"/>
-    <item android:title="Opp"
+    <item android:title="Opponent"
         android:icon="@mipmap/football_opponent_foreground"
         android:id="@+id/opponent"/>
 </menu>

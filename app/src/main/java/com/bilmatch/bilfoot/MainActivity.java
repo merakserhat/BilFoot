@@ -6,16 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.bilmatch.bilfoot.controllers.AuthenticationController;
-import com.bilmatch.bilfoot.view.ListAnnouncementsActivity;
-import com.bilmatch.bilfoot.view.NewAnnouncementActivity;
-import com.bilmatch.bilfoot.view.registration.PositionSelectionActivity;
 import com.bilmatch.bilfoot.view.AuthenticationActivity;
-import com.bilmatch.bilfoot.view.ProfileScreenActivity;
 
-import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 

@@ -14,9 +14,8 @@ import android.widget.Toast;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.controllers.RegistrationDefiningController;
-import com.bilmatch.bilfoot.view.NewAnnouncementActivity;
+import com.bilmatch.bilfoot.view.announcements.NewAnnouncementActivity;
 
-import java.time.Duration;
 import java.util.ArrayList;
 
 public class PositionSelectionActivity extends AppCompatActivity {

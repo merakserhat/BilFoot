@@ -1,4 +1,4 @@
-package com.bilmatch.bilfoot.view;
+package com.bilmatch.bilfoot.view.announcements;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.announcement.OpponentAnnouncement;
 import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
 import com.bilmatch.bilfoot.models.announcement.TeamAnnouncement;
+import com.bilmatch.bilfoot.view.ListAnnouncementsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

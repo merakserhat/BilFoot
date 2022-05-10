@@ -7,23 +7,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.bilmatch.bilfoot.R;
-import com.bilmatch.bilfoot.databinding.ActivityNewAnnouncementBinding;
 import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.User;
-import com.bilmatch.bilfoot.view.NewAnnouncementActivity;
-import com.bilmatch.bilfoot.view.ProfileScreenActivity;
+import com.bilmatch.bilfoot.view.announcements.NewAnnouncementActivity;
 import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
