@@ -16,7 +16,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="Which position(s) do\nyou prefer?"
+        android:text="Which position(s) do you need a player for?"
         android:textAlignment="center"
         android:textColor="@color/white" />
 
