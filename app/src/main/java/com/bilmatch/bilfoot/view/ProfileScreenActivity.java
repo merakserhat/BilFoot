@@ -13,7 +13,10 @@ import android.widget.TextView;
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.User;
+import com.bilmatch.bilfoot.view.announcements.ListAnnouncementsActivity;
+import com.bilmatch.bilfoot.view.announcements.NewAnnouncementActivity;
 import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,6 +29,7 @@ public class ProfileScreenActivity extends AppCompatActivity {
     public static final String OWN_PROFILE_KEY = "own_profile";
 
     boolean isOwnProfile;
+    BottomNavigationView appmenu;
     String email;
     TextView name, dominantfoot, position, emailviewer;
     ListView list;
@@ -49,6 +53,20 @@ public class ProfileScreenActivity extends AppCompatActivity {
         }else {
             fetchOtherUserInfo();
         }
+
+        appmenu.setOnItemSelectedListener(item -> {
+            switch (item.getItemId()){
+                //daha çok "case" ekleyerek diğer aktivitelere gitmesi de sağlanabilir,
+                //henüz yapılmadığı için sadece 1 tane var
+                //ekleme yapıldığında apps_menu ya item eklemeyi unutma
+                case R.id.newAnnouncement:
+                    startActivity(new Intent(ProfileScreenActivity.this, NewAnnouncementActivity.class));
+                    break;
+                case R.id.listAnnouncements:
+                    startActivity(new Intent(ProfileScreenActivity.this, ListAnnouncementsActivity.class));
+            }
+            return true;
+        });
 
 
     }

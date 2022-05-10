@@ -7,5 +7,10 @@
     <item android:title="Listings"
         android:icon="@mipmap/listings_icon_foreground"
 
-        android:id="@+id/listAnnouncements"/>
+        android:id="@+id/listAnnouncements" />
+    <item
+        android:id="@+id/profileScreen"
+        android:icon="@mipmap/profile_big_icon_foreground"
+        android:title="Profile" />
+
 </menu>

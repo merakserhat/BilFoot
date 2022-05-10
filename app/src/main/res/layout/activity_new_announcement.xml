@@ -108,6 +108,6 @@
         android:background="@color/background"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
-        app:menu="@menu/apps_menu"/>
+        app:menu="@menu/apps_menu" />
 
 </RelativeLayout>

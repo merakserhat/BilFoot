@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.bilmatch.bilfoot.databinding.ActivityListAnnouncementsBinding;
+import com.bilmatch.bilfoot.view.ProfileScreenActivity;
 import com.bilmatch.bilfoot.view.announcements.NewAnnouncementActivity;
 import com.bilmatch.bilfoot.view.main_fragments.Opponent;
 import com.bilmatch.bilfoot.view.main_fragments.Player;
@@ -54,6 +55,8 @@ public class ListAnnouncementsActivity extends AppCompatActivity {
                 case R.id.newAnnouncement:
                     startActivity(new Intent(ListAnnouncementsActivity.this, NewAnnouncementActivity.class));
                     break;
+                case R.id.profileScreen:
+                    startActivity(new Intent(ListAnnouncementsActivity.this, ProfileScreenActivity.class));
             }
             return true;
         });

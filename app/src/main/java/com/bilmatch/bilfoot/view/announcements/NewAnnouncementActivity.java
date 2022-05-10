@@ -15,6 +15,7 @@ import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.announcement.OpponentAnnouncement;
 import com.bilmatch.bilfoot.models.announcement.PlayerAnnouncement;
 import com.bilmatch.bilfoot.models.announcement.TeamAnnouncement;
+import com.bilmatch.bilfoot.view.ProfileScreenActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -43,7 +44,20 @@ public class NewAnnouncementActivity extends AppCompatActivity {
                 //new intent to position selection
                 startActivity(new Intent(NewAnnouncementActivity.this, PlayerAnnnouncementPositionSelectionActivity.class));
                 //move to new activity
+                /*
+                PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
+                playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
+                ArrayList<String> positions = new ArrayList<>();
+                positions.add("TP");
+                playerAnnouncement.setPositions(positions);
 
+                AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
+                    Log.d("SUCCESS","sa");
+                    Toast.makeText(NewAnnouncementActivity.this,"You have announced to find a team!",Toast.LENGTH_LONG).show();
+                }).addOnFailureListener(err -> {
+                    Log.e("ERROR", err.getMessage());
+                    Toast.makeText(NewAnnouncementActivity.this,"Something went wrong while creating an announcement",Toast.LENGTH_LONG).show();
+                });;*/
             }
         });
 
@@ -92,6 +106,8 @@ public class NewAnnouncementActivity extends AppCompatActivity {
                 case R.id.listAnnouncements:
                     startActivity(new Intent(NewAnnouncementActivity.this, ListAnnouncementsActivity.class));
                     break;
+                case R.id.profileScreen:
+                    startActivity(new Intent(NewAnnouncementActivity.this, ProfileScreenActivity.class));
             }
             return true;
         });
