@@ -1,4 +1,4 @@
-package com.bilmatch.bilfoot.view;
+package com.bilmatch.bilfoot.view.announcements;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -36,12 +36,12 @@ public class ListAnnouncementsActivity extends AppCompatActivity {
                 case R.id.player:
                     replaceFragment(new Player());
                     break;
-            case R.id.team:
-                replaceFragment(new Team());
-                break;
-            case R.id.opponent:
-                replaceFragment(new Opponent());
-                break;}
+                case R.id.team:
+                    replaceFragment(new Team());
+                    break;
+                case R.id.opponent:
+                    replaceFragment(new Opponent());
+                    break;}
 
             return true;
         });
