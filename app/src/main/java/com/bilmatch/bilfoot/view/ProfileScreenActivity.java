@@ -4,17 +4,28 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.bilmatch.bilfoot.R;
+import com.bilmatch.bilfoot.controllers.AnnouncementController;
 import com.bilmatch.bilfoot.models.Program;
 import com.bilmatch.bilfoot.models.User;
 import com.bilmatch.bilfoot.view.announcements.ListAnnouncementsActivity;
 import com.bilmatch.bilfoot.view.announcements.NewAnnouncementActivity;
+import com.bilmatch.bilfoot.view.main_fragments.Player;
 import com.bilmatch.bilfoot.view.registration.RegistrationUserDefiningsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -22,6 +33,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class ProfileScreenActivity extends AppCompatActivity {
     //final keys to transfer data from another activity
@@ -33,6 +46,8 @@ public class ProfileScreenActivity extends AppCompatActivity {
     String email;
     TextView name, dominantfoot, position, emailviewer;
     ListView list;
+    MyListAdapter myAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         name = findViewById(R.id.name);
@@ -40,12 +55,14 @@ public class ProfileScreenActivity extends AppCompatActivity {
         position = findViewById(R.id.positions);
         emailviewer = findViewById(R.id.email);
         list = findViewById(R.id.list);
+        appmenu = findViewById(R.id.appmenu);
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_screen);
 
-        getExtraInfo();
+        //getExtraInfo();
+
 
 
         if(isOwnProfile) {
@@ -53,6 +70,25 @@ public class ProfileScreenActivity extends AppCompatActivity {
         }else {
             fetchOtherUserInfo();
         }
+
+        //buraya özel yeteneklerin array listini koy
+        ArrayList<String> skillsArr = new ArrayList<String>();
+        skillsArr.add("DENEME");
+        myAdapter = new MyListAdapter(skillsArr, ProfileScreenActivity.this);
+
+
+
+
+
+        ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(
+                ProfileScreenActivity.this,
+                android.R.layout.simple_list_item_1,
+                skillsArr
+        );
+        list.setAdapter(stringArrayAdapter);
+
+
+
 
         appmenu.setOnItemSelectedListener(item -> {
             switch (item.getItemId()){
@@ -136,5 +172,49 @@ public class ProfileScreenActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private class MyListAdapter extends BaseAdapter implements ListAdapter {
+        private ArrayList<String> list = new ArrayList<String>();
+        private Context context;
+
+
+        public MyListAdapter(ArrayList<String> list, Context context) {
+            this.list = list;
+            this.context = context;
+        }
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public Object getItem(int pos) {
+            return list.get(pos);
+        }
+
+        @Override
+        public long getItemId(int pos) {
+            return -1;
+
+        }
+
+        @Override
+        public View getView(final int position, View convertView, ViewGroup parent) {
+            View view = convertView;
+            if (view == null) {
+                LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                view = inflater.inflate(R.layout.item_user_skills, null);
+            }
+
+            //CHANGE FOR EVERY DIFFERENT FRAGMENT
+            TextView listItemText = (TextView) view.findViewById(R.id.skill);
+
+
+            return view;
+
+
+        }
     }
 }
