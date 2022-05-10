@@ -53,7 +53,7 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
 
             android:orientation="vertical">
@@ -61,8 +61,8 @@
 
             <TextView
                 android:id="@+id/dominantfoot"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:gravity="center_vertical"
                 android:text="Dominant Foot: ..."
@@ -71,8 +71,8 @@
 
             <TextView
                 android:id="@+id/positions"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:layout_marginStart="4dp"
                 android:text="Preffered Position(s): ..."
@@ -81,8 +81,8 @@
 
             <TextView
                 android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:gravity="center_vertical"
                 android:text="E-Mail Adress: ..."
