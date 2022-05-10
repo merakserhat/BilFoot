@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.models.Program;
@@ -25,9 +27,17 @@ public class ProfileScreenActivity extends AppCompatActivity {
 
     boolean isOwnProfile;
     String email;
-
+    TextView name, dominantfoot, position, emailviewer;
+    ListView list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        name = findViewById(R.id.name);
+        dominantfoot = findViewById(R.id.dominantfoot);
+        position = findViewById(R.id.positions);
+        emailviewer = findViewById(R.id.email);
+        list = findViewById(R.id.list);
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_screen);
 
