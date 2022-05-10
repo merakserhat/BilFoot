@@ -90,12 +90,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             }
         });
 
-        /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //make new buttons appear
-            }
-        });*/
+
 
 
         return view;
@@ -119,46 +114,6 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
         }
     }
 
-    /*private class myListAdapter extends ArrayAdapter<String>{
-        private int layout;
-        public myListAdapter(@NonNull Context context, int resource, @NonNull List<String> objects) {
-            super(context, resource, objects);
-            layout = resource;
-        }
-
-
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            ViewHolder mainViewHolder = null;
-
-            if(convertView == null){
-                LayoutInflater layoutInflater = LayoutInflater.from(getContext());
-                convertView = layoutInflater.inflate(layout, parent);
-                ViewHolder viewHolder = new ViewHolder();
-                viewHolder.message = (TextView) convertView.findViewById(R.id.annMessage);
-                viewHolder.btn = (Button) convertView.findViewById(R.id.profileBtn);
-                viewHolder.btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-
-                    }
-                });
-                convertView.setTag(viewHolder);
-            }
-
-            else{
-                mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.message.setText(getItem(position));
-            }
-            return convertView;
-        }
-    }
-
-    public class ViewHolder{
-        TextView message;
-        Button btn;
-
-    }*/
     private class MyListAdapter extends BaseAdapter implements ListAdapter {
         private ArrayList<String> list = new ArrayList<String>();
         private Context context;
