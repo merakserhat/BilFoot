@@ -37,19 +37,8 @@ import java.util.ArrayList;
  */
 public class Player extends Fragment implements NewAnnouncementNotifier {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
     //List Variables
     ListView listView;
-    Button btn;
-
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public Player() {
         // Required empty public constructor
@@ -65,8 +54,7 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
         View view = inflater.inflate(R.layout.fragment_player, container, false);
 
         items = new ArrayList<String>();
-        items.add("a");
-        items.add("asdsadas");
+
 
 
         listView = (ListView) view.findViewById(R.id.playerList);
@@ -79,16 +67,6 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
 
 
         AnnouncementController.subscribeAnnouncementStream(this,PlayerAnnouncement.class);
-
-        btn = (Button)view.findViewById(R.id.btn11);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO
-
-            }
-        });
 
 
 
@@ -151,8 +129,6 @@ public class Player extends Fragment implements NewAnnouncementNotifier {
             //CHANGE FOR EVERY DIFFERENT FRAGMENT
             TextView listItemText = (TextView) view.findViewById(R.id.annMessage);
             listItemText.setText(list.get(position));
-            //ICON NAMES WILL BE DIFFERENT
-            ImageView mYicon = (ImageView) view.findViewById(R.id.playerIcon);
 
             //Handle buttons and add onClickListeners
             ImageButton profileBtn = (ImageButton) view.findViewById(R.id.profileBtn);

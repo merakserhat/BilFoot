@@ -32,27 +32,12 @@ import java.util.ArrayList;
  */
 public class Opponent extends Fragment implements NewAnnouncementNotifier {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private ListView listView;
 
     public Opponent() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-
-     * @return A new instance of fragment Opponent.
-     */
 
     private ArrayList<String> items;
     MyListAdapter myAdapter;
@@ -125,8 +110,6 @@ public class Opponent extends Fragment implements NewAnnouncementNotifier {
             //CHANGE FOR EVERY DIFFERENT FRAGMENT
             TextView listItemText = (TextView) view.findViewById(R.id.annMessage);
             listItemText.setText(list.get(position));
-            //ICON NAMES WILL BE DIFFERENT
-            ImageView mYicon = (ImageView) view.findViewById(R.id.playerIcon);
 
             //Handle buttons and add onClickListeners
             ImageButton profileBtn = (ImageButton) view.findViewById(R.id.profileBtn);

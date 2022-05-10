@@ -34,15 +34,8 @@ import java.util.ArrayList;
  */
 public class Team extends Fragment implements NewAnnouncementNotifier {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
     MyListAdapter myAdapter;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private ArrayList<String> items;
     private ListView listView;
 
@@ -50,21 +43,14 @@ public class Team extends Fragment implements NewAnnouncementNotifier {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @return A new instance of fragment Team.
-     */
-    // TODO: Rename and change types and number of parameters
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_team, container, false);
 
         items = new ArrayList<String>();
-        items.add("wjıoqdıqwoıjd");
-        items.add("asdsadas");
+
 
 
         listView = (ListView) view.findViewById(R.id.teamList);
@@ -74,15 +60,7 @@ public class Team extends Fragment implements NewAnnouncementNotifier {
         myAdapter = new MyListAdapter(items, this.getContext());
         listView.setAdapter(myAdapter);
 
-        /*btn = (Button)view.findViewById(R.id.btn111);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //"1" yerine eklenecek mesajı yaz. buton yerine yeni method yaz
-                items.add("1");
-                listView.setAdapter(stringArrayAdapter);
-            }
-        });*/
+
 
         AnnouncementController.subscribeAnnouncementStream(this, TeamAnnouncement.class);
 
@@ -92,7 +70,6 @@ public class Team extends Fragment implements NewAnnouncementNotifier {
 
     @Override
     public void newAnnouncementArrived(Announcement announcement) {
-        Log.d("sa","asfşlamsf");
         if(announcement instanceof TeamAnnouncement) {
             StringBuilder announcementMessage = new StringBuilder();
             announcementMessage.append(announcement.getAnnouncerEmail().split("@")[0]);
@@ -141,7 +118,7 @@ public class Team extends Fragment implements NewAnnouncementNotifier {
             TextView listItemText = (TextView) view.findViewById(R.id.annMessage);
             listItemText.setText(list.get(position));
             //ICON NAMES WILL BE DIFFERENT
-            ImageView mYicon = (ImageView) view.findViewById(R.id.playerIcon);
+            //ImageView mYicon = (ImageView) view.findViewById(R.id.playerIcon);
 
             //Handle buttons and add onClickListeners
             ImageButton profileBtn = (ImageButton) view.findViewById(R.id.profileBtn);
