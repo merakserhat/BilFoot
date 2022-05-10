@@ -30,7 +30,7 @@
 
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="MİRZA ÖZGÜR ATALAR"
+        android:text="..."
         android:textColor="@color/white"
 
 
@@ -67,31 +67,27 @@
                 android:id="@+id/dominantfoot"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:gravity="center"
-                android:text="Dominant Foot: LEFT"
+                android:gravity="center_vertical"
+                android:text="Dominant Foot: ..."
                 android:textSize="18dp"
-                android:textAlignment="center"
-
                 android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/positions"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:textSize="18dp"
-                android:text="Preffered Position(s): RB,LW"
-                android:textAlignment="center"
+                android:text="Preffered Position(s): ..."
                 android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/email"
-                android:gravity="center"
+                android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:textSize="18dp"
-                android:text="E-Mail Adress: ozgur.atalar@ug.bilkent.edu.tr"
-                android:textAlignment="center"
+                android:text="E-Mail Adress: ..."
                 android:textColor="@color/white" />
         </LinearLayout>
 

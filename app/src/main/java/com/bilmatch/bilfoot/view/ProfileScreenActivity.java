@@ -47,9 +47,13 @@ public class ProfileScreenActivity extends AppCompatActivity {
     TextView name, dominantfoot, position, emailviewer;
     ListView list;
     MyListAdapter myAdapter;
+    ArrayList<String> skillsArr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile_screen);
+
         name = findViewById(R.id.name);
         dominantfoot = findViewById(R.id.dominantfoot);
         position = findViewById(R.id.positions);
@@ -57,12 +61,12 @@ public class ProfileScreenActivity extends AppCompatActivity {
         list = findViewById(R.id.list);
         appmenu = findViewById(R.id.appmenu);
 
+        getExtraInfo();
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_screen);
 
-        //getExtraInfo();
-
+        //buraya özel yeteneklerin array listini koy
+        skillsArr = new ArrayList<String>();
+        myAdapter = new MyListAdapter(skillsArr, ProfileScreenActivity.this);
 
 
         if(isOwnProfile) {
@@ -70,12 +74,6 @@ public class ProfileScreenActivity extends AppCompatActivity {
         }else {
             fetchOtherUserInfo();
         }
-
-        //buraya özel yeteneklerin array listini koy
-        ArrayList<String> skillsArr = new ArrayList<String>();
-        skillsArr.add("DENEME");
-        myAdapter = new MyListAdapter(skillsArr, ProfileScreenActivity.this);
-
 
 
 
@@ -85,7 +83,7 @@ public class ProfileScreenActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1,
                 skillsArr
         );
-        list.setAdapter(stringArrayAdapter);
+        list.setAdapter(myAdapter);
 
 
 
@@ -113,9 +111,33 @@ public class ProfileScreenActivity extends AppCompatActivity {
      * @param user the user model that we want to fill with
      */
     private void fillProfileData(User user) {
-        //TODO: Create layout with holders (instead of Mirza Atalar, wrtie - );
-        //TODO: Find these textViews and other widgets
-        //TODO: Replace the texts based on the user model
+
+
+        emailviewer.setText("E-Mail Adress: " + user.getEmail());
+        name.setText(user.getUsername());
+        String dominantFootText = "";
+        if(user.getDominantFoot().size() == 1) {
+            dominantFootText = user.getDominantFoot().get(0);
+        }else {
+            dominantFootText = user.getDominantFoot().get(0) + " and " + user.getDominantFoot().get(1);
+        }
+        dominantfoot.setText("Dominant Foot: " + dominantFootText);
+
+        String preferredPositionsText = "";
+        for (String position:user.getPreferredPositions()) {
+            preferredPositionsText += position + ", ";
+        }
+
+        position.setText("Preferred Position(s): " + preferredPositionsText);
+
+        skillsArr.clear();
+
+        for (String skill:user.getSpecialSkills()) {
+            skillsArr.add(skill);
+        }
+
+        list.setAdapter(myAdapter);
+
     }
 
     /**
@@ -210,6 +232,7 @@ public class ProfileScreenActivity extends AppCompatActivity {
 
             //CHANGE FOR EVERY DIFFERENT FRAGMENT
             TextView listItemText = (TextView) view.findViewById(R.id.skill);
+            listItemText.setText(list.get(position));
 
 
             return view;
