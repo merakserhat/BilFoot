@@ -55,40 +55,39 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-
 
             android:orientation="vertical">
-
-
 
 
             <TextView
                 android:id="@+id/dominantfoot"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginStart="4dp"
                 android:gravity="center_vertical"
                 android:text="Dominant Foot: ..."
-                android:textSize="18dp"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/positions"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center_vertical"
-                android:textSize="18dp"
+                android:layout_marginStart="4dp"
                 android:text="Preffered Position(s): ..."
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/email"
-                android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:textSize="18dp"
+                android:layout_marginStart="4dp"
+                android:gravity="center_vertical"
                 android:text="E-Mail Adress: ..."
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:textSize="18dp" />
         </LinearLayout>
 
     </HorizontalScrollView>
@@ -110,6 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/specialskillstitle"
+        android:layout_above="@id/appmenu"
         android:layout_marginTop="0dp">
 
     </ListView>

@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.bilmatch.bilfoot.R;
 import com.bilmatch.bilfoot.controllers.AnnouncementController;
@@ -88,23 +90,48 @@ public class ProfileScreenActivity extends AppCompatActivity {
 
 
 
-        appmenu.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()){
-                //daha çok "case" ekleyerek diğer aktivitelere gitmesi de sağlanabilir,
-                //henüz yapılmadığı için sadece 1 tane var
-                //ekleme yapıldığında apps_menu ya item eklemeyi unutma
-                case R.id.newAnnouncement:
-                    startActivity(new Intent(ProfileScreenActivity.this, NewAnnouncementActivity.class));
-                    break;
-                case R.id.listAnnouncements:
-                    startActivity(new Intent(ProfileScreenActivity.this, ListAnnouncementsActivity.class));
-            }
-            return true;
-        });
+        if(isOwnProfile) {
+            appmenu.setOnItemSelectedListener(item -> {
+                switch (item.getItemId()) {
+                    //daha çok "case" ekleyerek diğer aktivitelere gitmesi de sağlanabilir,
+                    //henüz yapılmadığı için sadece 1 tane var
+                    //ekleme yapıldığında apps_menu ya item eklemeyi unutma
+                    case R.id.newAnnouncement:
+                        startActivity(new Intent(ProfileScreenActivity.this, NewAnnouncementActivity.class));
+                        break;
+                    case R.id.listAnnouncements:
+                        startActivity(new Intent(ProfileScreenActivity.this, ListAnnouncementsActivity.class));
+                }
+                return true;
+            });
+        }else {
+            appmenu.setVisibility(View.GONE);
+
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        }
 
 
     }
 
+    @Override
+    public boolean onNavigateUp() {
+
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            startActivity(new Intent(ProfileScreenActivity.this,ListAnnouncementsActivity.class));
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
     /**
      * Fills the profile screen based on this user model
