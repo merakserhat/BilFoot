@@ -15,17 +15,17 @@
         android:layout_height="179dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="8dp"
         android:layout_marginStart="155dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="155dp"
-        app:srcCompat="@drawable/group__3_" ></ImageView>
+        app:srcCompat="@drawable/group__3_"></ImageView>
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/avatar"
-        android:layout_marginBottom="-19dp"
+        android:layout_marginBottom="-34dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
         android:text="MİRZA ÖZGÜR ATALAR"
