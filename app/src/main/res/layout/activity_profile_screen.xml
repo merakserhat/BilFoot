@@ -62,22 +62,29 @@
                 android:id="@+id/dominantfoot"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:gravity="center"
                 android:text="Dominant Foot: LEFT"
+                android:textSize="18dp"
                 android:textAlignment="center"
+
                 android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/positions"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="18dp"
                 android:text="Preffered Position(s): RB,LW"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/email"
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:textSize="18dp"
                 android:text="E-Mail Adress: ozgur.atalar@ug.bilkent.edu.tr"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
