@@ -40,19 +40,23 @@ public class NewAnnouncementActivity extends AppCompatActivity {
         findPlayerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //new intent to position selection
+                startActivity(new Intent(NewAnnouncementActivity.this, PlayerAnnnouncementPositionSelectionActivity.class));
+                //move to new activity
+                /*
                 PlayerAnnouncement playerAnnouncement = new PlayerAnnouncement();
-
                 playerAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
                 ArrayList<String> positions = new ArrayList<>();
                 positions.add("TP");
                 playerAnnouncement.setPositions(positions);
 
                 AnnouncementController.addAnnouncement(playerAnnouncement,PlayerAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
-                    Log.d("SUCCES","sa");
+                    Log.d("SUCCESS","sa");
+                    Toast.makeText(NewAnnouncementActivity.this,"You have announced to find a team!",Toast.LENGTH_LONG).show();
                 }).addOnFailureListener(err -> {
                     Log.e("ERROR", err.getMessage());
-                });;
+                    Toast.makeText(NewAnnouncementActivity.this,"Something went wrong while creating an announcement",Toast.LENGTH_LONG).show();
+                });;*/
             }
         });
 
@@ -65,7 +69,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
                 teamAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
 
                 AnnouncementController.addAnnouncement(teamAnnouncement,TeamAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
-                    Log.d("SUCCES","sa");
+                    Log.d("SUCCESS","sa");
                     Toast.makeText(NewAnnouncementActivity.this,"You have announced to find a team!",Toast.LENGTH_LONG).show();
                 }).addOnFailureListener(err -> {
                     Log.e("ERROR", err.getMessage());
@@ -83,7 +87,7 @@ public class NewAnnouncementActivity extends AppCompatActivity {
                 opponentAnnouncement.setAnnouncerEmail(Program.getInstance().user.getEmail());
 
                 AnnouncementController.addAnnouncement(opponentAnnouncement,OpponentAnnouncement.class.getSimpleName()).addOnSuccessListener(suc -> {
-                    Log.d("SUCCES","sa");
+                    Log.d("SUCCESS","sa");
                     Toast.makeText(NewAnnouncementActivity.this,"You have announced to find an opponent!",Toast.LENGTH_LONG).show();
                 }).addOnFailureListener(err -> {
                     Log.e("ERROR", err.getMessage());
