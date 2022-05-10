@@ -6,32 +6,115 @@
     android:layout_height="match_parent"
     tools:context=".view.ProfileScreenActivity"
     android:background="@color/background"
-    android:gravity="center_horizontal"
+    android:layout_gravity="center_horizontal"
     >
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="138dp"
-        android:layout_height="261dp"
+        android:id="@+id/avatar"
+        android:layout_width="101dp"
+        android:layout_height="179dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="142dp"
-        android:layout_marginEnd="142dp"
-        app:srcCompat="@drawable/group__3_" />
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginEnd="155dp"
+        app:srcCompat="@drawable/group__3_" ></ImageView>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/avatar"
+        android:layout_marginBottom="-19dp"
+        android:fontFamily="@font/poppins_bold"
+        android:gravity="center"
+        android:text="MİRZA ÖZGÜR ATALAR"
+        android:textColor="@color/white"
+
+
+        android:textSize="20dp">
+
+    </TextView>
 
     <HorizontalScrollView
+        android:id="@+id/identities"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_below="@+id/imageView8"
+        android:layout_height="150dp"
+        android:layout_below="@+id/avatar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="35dp"
+        android:layout_marginEnd="24dp"
         android:background="@color/card_active">
+
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical" />
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+
+
+            <TextView
+                android:id="@+id/dominantfoot"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Dominant Foot: LEFT"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/positions"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Preffered Position(s): RB,LW"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="E-Mail Adress: ozgur.atalar@ug.bilkent.edu.tr"
+                android:textAlignment="center"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
     </HorizontalScrollView>
 
+    <TextView
+        android:id="@+id/specialskillstitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_below="@+id/identities"
+        android:layout_marginTop="23dp"
+        android:text="Special Skills"
+        android:fontFamily="@font/poppins_bold"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/specialskillstitle">
+
+    </ListView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/appmenu"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="@color/background"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/apps_menu" />
 
 </RelativeLayout>
 
