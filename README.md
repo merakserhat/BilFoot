@@ -35,11 +35,11 @@ First, clone the repo:
 ***1.   Player announcements:** The announcements to find a player for specific positions*     
 ***2.   Team announcements:** The announcements to find a team to play in*     
 ***3.   Opponent announcements:** The announcements to find an opponent to play against as a team*         
-+ **Members can view the announcements and see the profile of the owner of the announcements**                                                                             
++ **Members can view the announcements and see the profile of the owner of the announcement**                                                                             
 + **If members are available, they can send an email to the owner of the announcement to play.**                     
 
 
-In this project the following technologies will be used:
+In this project the following technologies have been used:
 
 ```
 Version Control
