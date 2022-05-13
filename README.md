@@ -2,6 +2,9 @@
 
 Bilfoot is an Android application for Bilkent University students to find players, teams and opponents for their football matches.
 
+[Group Meetings Log](group/meetingslog.md)
+
+
 ## Group Members
 - SERHAT MERAK
 - MİRZA ÖZGÜR ATALAR
